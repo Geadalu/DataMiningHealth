@@ -5,8 +5,8 @@
 
 escribir = []
 
-#with open(r"C:\Users\lucia\OneDrive\Escritorio\resultado.csv", 'r', encoding='iso-8859-1') as f:
-with open(r"C:\Users\lcalzado\Desktop\resultado.csv", 'r', encoding='iso-8859-1') as f:
+with open(r"C:\Users\lucia\OneDrive\Escritorio\resultado_2ej.csv", 'r', encoding='iso-8859-1') as f:
+#with open(r"C:\Users\lcalzado\Desktop\resultado_2ej.csv", 'r', encoding='iso-8859-1') as f:
     
     #print(f.readline())
     primeraLinea = ''
@@ -34,11 +34,10 @@ with open(r"C:\Users\lcalzado\Desktop\resultado.csv", 'r', encoding='iso-8859-1'
             'If you have a mental health issue do you feel that it interferes with your work when NOT being treated effectively?')
      
     escribir[0] = escribir[0].replace('If yes, what condition(s) have you been diagnosed with?', 'If yes what condition(s) have you been diagnosed with?')
-    
-    #escribir[0] = escribir[0].replace('')
 
 
-#with open(r"C:\Users\lucia\OneDrive\Escritorio\resultado2.csv", 'w+', encoding='iso-8859-1') as f:
-with open(r"C:\Users\lcalzado\Desktop\resultado2.csv", 'w+', encoding='iso-8859-1') as f:
+
+with open(r"C:\Users\lucia\OneDrive\Escritorio\resultado2_2ej.csv", 'w+', encoding='iso-8859-1') as f:
+#+with open(r"C:\Users\lcalzado\Desktop\resultado2_2ej.csv", 'w+', encoding='iso-8859-1') as f:
     for x in escribir:
         f.write(x)

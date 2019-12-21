@@ -5,8 +5,8 @@
 import pandas as panda
 #import os
 
-#data = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\mental_health2.csv", encoding='iso-8859-1')
-data = panda.read_csv(r"C:\Users\lcalzado\Desktop\survey_2016.csv", encoding='iso-8859-1')
+data = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\mental_health2.csv", encoding='iso-8859-1')
+#data = panda.read_csv(r"C:\Users\lcalzado\Desktop\survey_2016.csv", encoding='iso-8859-1')
 
 print(data)
 
@@ -40,7 +40,7 @@ data2 = data2.drop(["Are you self-employed?",
                     "How willing would you be to share with friends and family that you have a mental illness?",
                     "Do you have a family history of mental illness?",
                     "Have you had a mental health disorder in the past?",
-                    "If maybe, what condition(s) do you believe you have?",
+                    #"If maybe, what condition(s) do you believe you have?",
                     "If so, what condition(s) were you diagnosed with?",
                     "Have you ever sought treatment for a mental health issue from a mental health professional?",
                     "What country do you live in?",
@@ -50,12 +50,10 @@ data2 = data2.drop(["Are you self-employed?",
                     ], axis=1)
 print(data2)
 
+#cuando juntes las columnas tienes que cambiar el nombre a la label:
+#data2.rename(columns={"Do you currently have a mental health disorder?": "label"}, inplace = True)
 
-#cambiar el nombre de lo que quieras predecir a label
-#quitar valores nulos (si es posible, mejor líneas enteras)
-
-
-#data2.to_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado.csv", index=False)
-data2.to_csv(r"C:\Users\lcalzado\Desktop\resultado.csv", index=False)
+data2.to_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado_2ej.csv", index=False)
+#data2.to_csv(r"C:\Users\lcalzado\Desktop\resultado.csv", index=False)
 
 

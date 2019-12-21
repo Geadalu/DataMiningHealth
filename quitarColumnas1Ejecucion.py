@@ -53,8 +53,7 @@ data2 = data2.drop(["Are you self-employed?",
                     ], axis=1)
 print(data2)
 
-
-#cambiar el nombre de lo que quieras predecir a label
+data2.rename(columns={"Do you currently have a mental health disorder?": "label"}, inplace = True)
 
 data2.to_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado.csv", index=False)
 #data2.to_csv(r"C:\Users\lcalzado\Desktop\resultado.csv", index=False)
