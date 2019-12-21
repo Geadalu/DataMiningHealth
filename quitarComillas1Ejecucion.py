@@ -5,8 +5,8 @@
 
 escribir = []
 
-#with open(r"C:\Users\lucia\OneDrive\Escritorio\resultado.csv", 'r', encoding='iso-8859-1') as f:
-with open(r"C:\Users\lcalzado\Desktop\resultado.csv", 'r', encoding='iso-8859-1') as f:
+with open(r"C:\Users\lucia\OneDrive\Escritorio\resultado.csv", 'r', encoding='iso-8859-1') as f:
+#with open(r"C:\Users\lcalzado\Desktop\resultado.csv", 'r', encoding='iso-8859-1') as f:
     
     #print(f.readline())
     primeraLinea = ''
@@ -33,7 +33,7 @@ with open(r"C:\Users\lcalzado\Desktop\resultado.csv", 'r', encoding='iso-8859-1'
 
 
 
-#with open(r"C:\Users\lucia\OneDrive\Escritorio\resultado2.csv", 'w+', encoding='iso-8859-1') as f:
-with open(r"C:\Users\lcalzado\Desktop\resultado2.csv", 'w+', encoding='iso-8859-1') as f:
+with open(r"C:\Users\lucia\OneDrive\Escritorio\sinComillas.csv", 'w+', encoding='iso-8859-1') as f:
+#with open(r"C:\Users\lcalzado\Desktop\resultado2.csv", 'w+', encoding='iso-8859-1') as f:
     for x in escribir:
         f.write(x)

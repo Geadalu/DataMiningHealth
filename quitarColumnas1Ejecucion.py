@@ -5,8 +5,8 @@
 import pandas as panda
 #import os
 
-#data = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\mental_health2.csv", encoding='iso-8859-1')
-data = panda.read_csv(r"C:\Users\lcalzado\Desktop\survey_2016.csv", encoding='iso-8859-1')
+data = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\mental_health2.csv", encoding='iso-8859-1')
+#data = panda.read_csv(r"C:\Users\lcalzado\Desktop\survey_2016.csv", encoding='iso-8859-1')
 
 print(data)
 
@@ -56,7 +56,7 @@ print(data2)
 
 #cambiar el nombre de lo que quieras predecir a label
 
-#data2.to_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado.csv", index=False)
-data2.to_csv(r"C:\Users\lcalzado\Desktop\resultado.csv", index=False)
+data2.to_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado.csv", index=False)
+#data2.to_csv(r"C:\Users\lcalzado\Desktop\resultado.csv", index=False)
 
 
