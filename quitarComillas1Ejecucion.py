@@ -32,7 +32,7 @@ with open(r"C:\Users\lucia\OneDrive\Escritorio\resultado.csv", 'r', encoding='is
 
 
 
-with open(r"C:\Users\lucia\OneDrive\Escritorio\sinComillas.csv", 'w+', encoding='iso-8859-1') as f:
-#with open(r"C:\Users\lcalzado\Desktop\resultado2.csv", 'w+', encoding='iso-8859-1') as f:
+with open(r"C:\Users\lucia\OneDrive\Escritorio\resultado.csv", 'w+', encoding='iso-8859-1') as f:
+#with open(r"C:\Users\lcalzado\Desktop\resultado.csv", 'w+', encoding='iso-8859-1') as f:
     for x in escribir:
         f.write(x)

@@ -4,8 +4,8 @@
 
 import pandas as panda
 
-#data3 = panda.read_csv(r"C:\Users\lcalzado\Desktop\sinComillas.csv", encoding='iso-8859-1')
-data3 = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\sinComillas.csv", encoding='iso-8859-1')
+#data3 = panda.read_csv(r"C:\Users\lcalzado\Desktop\resultado.csv", encoding='iso-8859-1')
+data3 = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado.csv", encoding='iso-8859-1')
 
 data3 = data3.replace(to_replace = {'How many employees does your company or organization have?': '1-5'}, value = 5)
 data3 = data3.replace(to_replace = {'How many employees does your company or organization have?': '6-25'}, value = 25)
@@ -138,5 +138,5 @@ data3 = data3.replace(to_replace = {'Do you work remotely?': 'Never'}, value = 0
 data3 = data3.replace(to_replace = {'Do you work remotely?': 'Sometimes'}, value = 1)
 data3 = data3.replace(to_replace = {'Do you work remotely?': 'Always'}, value = 2)
 
-data3.to_csv(r'C:\Users\lucia\OneDrive\Escritorio\numeros.csv', index=False);
-#data3.to_csv(r'C:\Users\lcalzado\Desktop\numeros.csv', index=False);
+data3.to_csv(r'C:\Users\lucia\OneDrive\Escritorio\resultado.csv', index=False);
+#data3.to_csv(r'C:\Users\lcalzado\Desktop\resultado.csv', index=False);

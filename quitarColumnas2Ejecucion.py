@@ -41,17 +41,19 @@ data2 = data2.drop(["Are you self-employed?",
                     "Do you have a family history of mental illness?",
                     "Have you had a mental health disorder in the past?",
                     #"If maybe, what condition(s) do you believe you have?",
+                    "Have you been diagnosed with a mental health condition by a medical professional?",
                     "If so, what condition(s) were you diagnosed with?",
                     "Have you ever sought treatment for a mental health issue from a mental health professional?",
                     "What country do you live in?",
                     "What US state or territory do you live in?",
                     "What country do you work in?",
-                    "What US state or territory do you work in?"
+                    "What US state or territory do you work in?",
+                    "Which of the following best describes your work position?"
                     ], axis=1)
 print(data2)
 
-#cuando juntes las columnas tienes que cambiar el nombre a la label:
-#data2.rename(columns={"Do you currently have a mental health disorder?": "label"}, inplace = True)
+data2.rename(columns={"Do you currently have a mental health disorder?": "label"}, inplace = True)
+
 
 data2.to_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado_2ej.csv", index=False)
 #data2.to_csv(r"C:\Users\lcalzado\Desktop\resultado.csv", index=False)

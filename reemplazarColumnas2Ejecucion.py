@@ -4,8 +4,8 @@
 
 import pandas as panda
 
-#data3 = panda.read_csv(r"C:\Users\lcalzado\Desktop\resultado2_2ej.csv", encoding='iso-8859-1')
-data3 = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado2_2ej.csv", encoding='iso-8859-1')
+#data3 = panda.read_csv(r"C:\Users\lcalzado\Desktop\resultado_2ej.csv", encoding='iso-8859-1')
+data3 = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado_2ej.csv", encoding='iso-8859-1')
 
 data3 = data3.replace(to_replace = {'How many employees does your company or organization have?': '1-5'}, value = 5)
 data3 = data3.replace(to_replace = {'How many employees does your company or organization have?': '6-25'}, value = 25)
@@ -14,7 +14,6 @@ data3 = data3.replace(to_replace = {'How many employees does your company or org
 data3 = data3.replace(to_replace = {'How many employees does your company or organization have?': '500-1000'}, value = 1000)
 data3 = data3.replace(to_replace = {'How many employees does your company or organization have?': 'More than 1000'}, value = 1500)
 
-#borrar filas con "not eligible for coverage"?
 data3 = data3.replace(to_replace = {'Does your employer provide mental health benefits as part of healthcare coverage?': 'No'}, value = 0)
 data3 = data3.replace(to_replace = {'Does your employer provide mental health benefits as part of healthcare coverage?': 'I don\'t know'}, value = 1)
 data3 = data3.replace(to_replace = {'Does your employer provide mental health benefits as part of healthcare coverage?': 'Yes'}, value = 2)
@@ -105,14 +104,66 @@ data3 = data3.replace(to_replace = {'label': 'Yes'}, value = 1);
 #data3 = data3.replace(to_replace = {'label': 'Yes'}, value = 2);
 
 ################################################################################################################################
-data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': 'Anxiety Disorder (Generalized, Social, Phobia, etc)'}, value = 0);
+data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Anxiety Disorder (Generalized, Social, Phobia, etc)',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Asperges', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Attention Deficit Hyperactivity Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Attention Deficit Hyperactivity Disorder|Obsessive-Compulsive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Attention Deficit Hyperactivity Disorder|Post-traumatic Stress Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Attention Deficit Hyperactivity Disorder|Post-traumatic Stress Disorder|Addictive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Attention Deficit Hyperactivity Disorder|Stress Response Syndromes', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Eating Disorder (Anorexia, Bulimia, etc)|Stress Response Syndromes', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Addictive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Dissociative Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Obsessive-Compulsive Disorder',  
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Obsessive-Compulsive Disorder|Substance Use Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Obsessive-Compulsive Disorder|Post-traumatic Stress Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Stress Response Syndromes|Addictive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Post-traumatic Stress Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Post-traumatic Stress Disorder|Substance Use Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Substance Use Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Dissociative Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Eating Disorder (Anorexia, Bulimia, etc)', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Eating Disorder (Anorexia, Bulimia, etc)|Obsessive-Compulsive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Eating Disorder (Anorexia, Bulimia, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Obsessive-Compulsive Disorder|Stress Response Syndromes|Dissociative Disorder|Substance Use Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Eating Disorder (Anorexia, Bulimia, etc)|Post-traumatic Stress Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Obsessive-Compulsive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Obsessive-Compulsive Disorder|Post-traumatic Stress Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Obsessive-Compulsive Disorder|Post-traumatic Stress Disorder|Stress Response Syndromes', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Obsessive-Compulsive Disorder|Substance Use Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Post-traumatic Stress Disorder|Substance Use Disorder|Addictive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Stress Response Syndromes', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Post-traumatic Stress Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Post-traumatic Stress Disorder|Addictive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Post-traumatic Stress Disorder|Addictive Disorder|Autism', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Post-traumatic Stress Disorder|Stress Response Syndromes', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Post-traumatic Stress Disorder|Substance Use Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Post-traumatic Stress Disorder|Substance Use Disorder|Addictive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Stress Response Syndromes', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Stress Response Syndromes|Substance Use Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Substance Use Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Substance Use Disorder|Addictive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Obsessive-Compulsive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Obsessive-Compulsive Disorder|Post-traumatic Stress Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Obsessive-Compulsive Disorder|Stress Response Syndromes', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Obsessive-Compulsive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Substance Use Disorder|Addictive Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Post-traumatic Stress Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Post-traumatic Stress Disorder|Stress Response Syndromes', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Post-traumatic Stress Disorder|Stress Response Syndromes|Autism spectrum disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Stress Response Syndromes', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Stress Response Syndromes|Substance Use Disorder', 
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Substance Use Disorder'], }, value = 0);
 data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Attention Deficit Hyperactivity Disorder', 'Attention Deficit Hyperactivity Disorder|Addictive Disorder',
                                     'Attention Deficit Hyperactivity Disorder|Obsessive-Compulsive Disorder|Stress Response Syndromes', 'Attention Deficit Hyperactivity Disorder|PTSD (undiagnosed)',
                                     'Attention Deficit Hyperactivity Disorder|Pervasive Developmental Disorder (Not Otherwise Specified)']}, value = 1);
 data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Autism Spectrum Disorder', 'Autism (Asperger\'s)']}, value = 2);
 data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': 'Eating Disorder (Anorexia, Bulimia, etc)'}, value = 3);
 data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Eating Disorder (Anorexia, Bulimia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)',
-                                    'Mood Disorder (Depression, Bipolar Disorder, etc', 'Mood Disorder (Depression, Bipolar Disorder, etc)|Addictive Disorder',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Addictive Disorder',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)', 'Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder', 
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Obsessive-Compulsive Disorder|Addictive Disorder',
@@ -129,27 +180,118 @@ data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diag
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Post-traumatic Stress Disorder|Addictive Disorder',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Post-traumatic Stress Disorder|Dissociative Disorder',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Stress Response Syndromes',
-                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Substance Use Disorder'
-                                    ]}, value = 4);
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Substance Use Disorder',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Post-traumatic Stress Disorder|Substance Use Disorder',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Substance Use Disorder'
+                                    ]}, value = 4)
 data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Obsessive-Compulsive Disorder',
                                     'Obsessive-Compulsive Disorder|Eating Disorder (Anorexia, Bulimia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
-                                    'Obsessive-Compulsive Disorder|Substance Use Disorder']}, value = 5);
-data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': 'Personality Disorder (Borderline, Antisocial, Paranoid, etc)'}, value = 6);
+                                    'Obsessive-Compulsive Disorder|Substance Use Disorder']}, value = 5)
+data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': 'Personality Disorder (Borderline, Antisocial, Paranoid, etc)'}, value = 6)
 data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Post-traumatic Stress Disorder',
                                     'Post-traumatic Stress Disorder|Dissociative Disorder',
                                     'Post-traumatic Stress Disorder|Stress Response Syndromes',
-                                    ]}, value = 7);
+                                    ]}, value = 7)
 data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Psychotic Disorder (Schizophrenia, Schizoaffective, etc)',
-                                    'Psychotic Disorder (Schizophrenia, Schizoaffective, etc)|Obsessive-Compulsive Disorder|ADD (w/o Hyperactivity)']}, value = 8);
+                                    'Psychotic Disorder (Schizophrenia, Schizoaffective, etc)|Obsessive-Compulsive Disorder|ADD (w/o Hyperactivity)']}, value = 8)
 data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Schizotypal Personality Disorder',
                                     'Seasonal Affective Disorder',
                                     'Sexual addiction',
                                     'Stress Response Syndromes',
+                                    'Addictive Disorder',
                                     'Stress Response Syndromes|Sleeping Disorder',
                                     'Substance Use Disorder|Addictive Disorder',
                                     'Transgender|Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
-                                    'Traumatic Brain Injury']}, value = 9);
-data3['If yes what condition(s) have you been diagnosed with?'].fillna(10, inplace = True)
+                                    'Traumatic Brain Injury']}, value = 9) #otros
+#data3['If yes what condition(s) have you been diagnosed with?'].fillna(10, inplace = True)
+################################################################################################################################
+
+data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Anxiety Disorder (Generalized, Social, Phobia, etc)',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Addictive Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Attention Deficit Hyperactivity Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Attention Deficit Hyperactivity Disorder|Addictive Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Attention Deficit Hyperactivity Disorder|Asperger\'s',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Attention Deficit Hyperactivity Disorder|Post-traumatic Stress Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Attention Deficit Hyperactivity Disorder|Substance Use Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Eating Disorder (Anorexia, Bulimia, etc)|Stress Response Syndromes',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Addictive Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Dissociative Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Eating Disorder (Anorexia, Bulimia, etc)',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Obsessive-Compulsive Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Obsessive-Compulsive Disorder|Stress Response Syndromes',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Stress Response Syndromes',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Stress Response Syndromes|Addictive Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Substance Use Disorder|Addictive Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Post-traumatic Stress Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Post-traumatic Stress Disorder|Stress Response Syndromes',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Psychotic Disorder (Schizophrenia, Schizoaffective, etc)',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Psychotic Disorder (Schizophrenia, Schizoaffective, etc)|Eating Disorder (Anorexia, Bulimia, etc)|Attention Deficit Hyperactivity Disorder|Obsessive-Compulsive Disorder|Post-traumatic Stress Disorder|Stress Response Syndromes',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Psychotic Disorder (Schizophrenia, Schizoaffective, etc)|Obsessive-Compulsive Disorder|Post-traumatic Stress Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Psychotic Disorder (Schizophrenia, Schizoaffective, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Stress Response Syndromes',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Stress Response Syndromes',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Obsessive-Compulsive Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Obsessive-Compulsive Disorder|Stress Response Syndromes',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Post-traumatic Stress Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Post-traumatic Stress Disorder|Stress Response Syndromes',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Stress Response Syndromes',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Stress Response Syndromes|Addictive Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Obsessive-Compulsive Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Post-traumatic Stress Disorder',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Stress Response Syndromes',
+                                    
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Tinnitus']}, value = 0)
+data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Attention Deficit Hyperactivity Disorder',
+                                    'Attention Deficit Hyperactivity Disorder|Mood Disorder (Depression, Bipolar Disorder, etc)',
+                                    'Attention Deficit Hyperactivity Disorder|Obsessive-Compulsive Disorder']}, value = 1)  
+data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Asperger Syndrome',
+                                    'Autism']}, value = 2)  
+data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': 'Eating Disorder (Anorexia, Bulimia, etc)'}, value = 3)                          
+data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Mood Disorder (Depression, Bipolar Disorder, etc)',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Addictive Disorder',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Addictive Disorder',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Eating Disorder (Anorexia, Bulimia, etc)',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Eating Disorder (Anorexia, Bulimia, etc)|Attention Deficit Hyperactivity Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Stress Response Syndromes',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Obsessive-Compulsive Disorder',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Obsessive-Compulsive Disorder|Stress Response Syndromes|Addictive Disorder',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Obsessive-Compulsive Disorder|Substance Use Disorder',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Post-traumatic Stress Disorder|Addictive Disorder',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Psychotic Disorder (Schizophrenia, Schizoaffective, etc)|Attention Deficit Hyperactivity Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Post-traumatic Stress Disorder|Dissociative Disorder|Depersonalisation',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Stress Response Syndromes',
+                                    ]}, value = 4);
+data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Obsessive-Compulsive Disorder',
+                                    'Obsessive-Compulsive Disorder|Eating Disorder (Anorexia, Bulimia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
+                                    'Obsessive-Compulsive Disorder|Substance Use Disorder',
+                                    'Obsessive-Compulsive Disorder|Mood Disorder (Depression, Bipolar Disorder, etc)',
+                                    'Obsessive-Compulsive Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
+                                    'Obsessive-Compulsive Disorder|Suicidal Ideation']}, value = 5)
+data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Personality Disorder (Borderline, Antisocial, Paranoid, etc)',
+                                    'Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Addictive Disorder'
+                                    'Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)',
+                                    'Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
+                                    'Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Substance Use Disorder|Addictive Disorder']}, value = 6)
+data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': 'Post-traumatic Stress Disorder'}, value = 7)
+data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': 'Psychotic Disorder (Schizophrenia, Schizoaffective, etc)|Stress Response Syndromes'}, value = 8)
+data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Addictive Disorder',
+                                    'Addictive Disorder|Substance Use Disorder|Obsessive-Compulsive Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)',
+                                    'Gender Identity Disorder', 
+                                    'Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)',
+                                    'Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Addictive Disorder',
+                                    'Stress Response Syndromes|Substance Use Disorder|Addictive Disorder',
+                                    'Substance Use Disorder',
+                                    'Substance Use Disorder|Addictive Disorder',
+                                    'Substance Use Disorder|Obsessive-Compulsive Disorder',
+                                    'depersonalization disorder',
+                                    'post-partum / anxiety']}, value = 9)
+#data3['If maybe what condition(s) do you believe you have?'].fillna(10, inplace = True)
 ################################################################################################################################
 
 data3 = data3.replace(to_replace = {'If you have a mental health issue do you feel that it interferes with your work when being treated effectively?': 'Never'}, value = 0)
@@ -186,5 +328,5 @@ data3 = data3.replace(to_replace = {'Do you work remotely?': 'Never'}, value = 0
 data3 = data3.replace(to_replace = {'Do you work remotely?': 'Sometimes'}, value = 1)
 data3 = data3.replace(to_replace = {'Do you work remotely?': 'Always'}, value = 2)
 
-data3.to_csv(r'C:\Users\lucia\OneDrive\Escritorio\resultado2_2ej.csv', index=False);
-#data3.to_csv(r'C:\Users\lcalzado\Desktop\resultado2_2ej.csv', index=False);
+data3.to_csv(r'C:\Users\lucia\OneDrive\Escritorio\resultado_2ej.csv', index=False);
+#data3.to_csv(r'C:\Users\lcalzado\Desktop\resultado_2ej.csv', index=False);
