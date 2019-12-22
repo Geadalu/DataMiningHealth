@@ -9,17 +9,23 @@ import numpy as np
 from sklearn import neighbors
 from sklearn.model_selection import cross_val_score, train_test_split
 from sklearn.metrics import confusion_matrix
+from sklearn import preprocessing
 
 
-mental_health = panda.read_csv(r'C:\Users\lucia\OneDrive\Escritorio\datasetUsable.csv')
+mental_health = panda.read_csv(r'C:\Users\lucia\OneDrive\Escritorio\datasetUsable_2ej.csv')
 mental_health.head()
 
-# features and labels
+#normalizar los datos 
+min_max_scaler = preprocessing.MinMaxScaler()
+
+#features and labels
 features = list(mental_health.columns.values)
 features.remove('label')
 
 X = mental_health[features]
 y = mental_health['label']
+
+X = min_max_scaler.fit_transform(X)
 
 # x axis for plotting
 xx = np.stack(i for i in range(len(y)))
@@ -41,8 +47,8 @@ plt.show()
 
 
 #1. Build the model
-n_neighbors = 11 # BEST PARAMETER
-knn = neighbors.KNeighborsClassifier(n_neighbors, weights="distance")
+n_neighbors = 22 # BEST PARAMETER
+knn = neighbors.KNeighborsClassifier(n_neighbors, weights="uniform")
 
 #divide database features into training and test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.10, random_state=42)
@@ -54,4 +60,4 @@ knn.fit(X_train, y_train)
 y_pred = knn.predict(X_test)
 
 #confusion matrix
-confusion_matrix(y_test, y_pred, labels = [0, 1])
+confusion_matrix(y_test, y_pred, labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])

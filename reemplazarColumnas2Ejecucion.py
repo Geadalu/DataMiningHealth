@@ -3,6 +3,7 @@
 """
 
 import pandas as panda
+import numpy as np
 
 #data3 = panda.read_csv(r"C:\Users\lcalzado\Desktop\resultado_2ej.csv", encoding='iso-8859-1')
 data3 = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado_2ej.csv", encoding='iso-8859-1')
@@ -98,9 +99,9 @@ data3 = data3.replace(to_replace = {'Have your observations of how another indiv
 data3 = data3.replace(to_replace = {'Have your observations of how another individual who discussed a mental health disorder made you less likely to reveal a mental health issue yourself in your current workplace?': 'Yes'}, value = 2);
 data3['Have your observations of how another individual who discussed a mental health disorder made you less likely to reveal a mental health issue yourself in your current workplace?'].fillna(3, inplace = True) #tratado como "no aplica"
 
-data3 = data3.replace(to_replace = {'label': 'No'}, value = 0);
-data3 = data3.replace(to_replace = {'label': 'Maybe'}, value = 1);
-data3 = data3.replace(to_replace = {'label': 'Yes'}, value = 1);
+data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'No'}, value = 0);
+data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'Maybe'}, value = 1);
+data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'Yes'}, value = 1);
 #data3 = data3.replace(to_replace = {'label': 'Yes'}, value = 2);
 
 ################################################################################################################################
@@ -204,7 +205,7 @@ data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diag
                                     'Substance Use Disorder|Addictive Disorder',
                                     'Transgender|Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
                                     'Traumatic Brain Injury']}, value = 9) #otros
-#data3['If yes what condition(s) have you been diagnosed with?'].fillna(10, inplace = True)
+data3['If yes what condition(s) have you been diagnosed with?'].fillna(99, inplace = True)
 ################################################################################################################################
 
 data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Anxiety Disorder (Generalized, Social, Phobia, etc)',
@@ -291,7 +292,7 @@ data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe y
                                     'Substance Use Disorder|Obsessive-Compulsive Disorder',
                                     'depersonalization disorder',
                                     'post-partum / anxiety']}, value = 9)
-#data3['If maybe what condition(s) do you believe you have?'].fillna(10, inplace = True)
+data3['If maybe what condition(s) do you believe you have?'].fillna(99, inplace = True)
 ################################################################################################################################
 
 data3 = data3.replace(to_replace = {'If you have a mental health issue do you feel that it interferes with your work when being treated effectively?': 'Never'}, value = 0)
@@ -327,6 +328,16 @@ data3['What is your gender?'].replace(to_replace = (data3['What is your gender?'
 data3 = data3.replace(to_replace = {'Do you work remotely?': 'Never'}, value = 0)
 data3 = data3.replace(to_replace = {'Do you work remotely?': 'Sometimes'}, value = 1)
 data3 = data3.replace(to_replace = {'Do you work remotely?': 'Always'}, value = 2)
+
+#juntar las dos columnas
+ # If maybe what condition(s) do you believe you have?
+ # If yes what condition(s) have you been diagnosed with?
+data3.rename(columns={"If yes what condition(s) have you been diagnosed with?": "label"}, inplace = True)
+
+data3.loc[data3.label == 99, 'label'] = data3.loc[data3.label == 99, "If maybe what condition(s) do you believe you have?"]
+data3.loc[data3.label == 99, 'label'] = 10
+data3 = data3.drop("If maybe what condition(s) do you believe you have?", axis=1)
+
 
 data3.to_csv(r'C:\Users\lucia\OneDrive\Escritorio\resultado_2ej.csv', index=False);
 #data3.to_csv(r'C:\Users\lcalzado\Desktop\resultado_2ej.csv', index=False);
