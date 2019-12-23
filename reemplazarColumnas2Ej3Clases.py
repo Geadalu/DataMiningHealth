@@ -157,13 +157,7 @@ data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diag
                                     'Anxiety Disorder (Generalized, Social, Phobia, etc)|Post-traumatic Stress Disorder|Stress Response Syndromes|Autism spectrum disorder', 
                                     'Anxiety Disorder (Generalized, Social, Phobia, etc)|Stress Response Syndromes', 
                                     'Anxiety Disorder (Generalized, Social, Phobia, etc)|Stress Response Syndromes|Substance Use Disorder', 
-                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Substance Use Disorder'], }, value = 0);
-data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Attention Deficit Hyperactivity Disorder', 'Attention Deficit Hyperactivity Disorder|Addictive Disorder',
-                                    'Attention Deficit Hyperactivity Disorder|Obsessive-Compulsive Disorder|Stress Response Syndromes', 'Attention Deficit Hyperactivity Disorder|PTSD (undiagnosed)',
-                                    'Attention Deficit Hyperactivity Disorder|Pervasive Developmental Disorder (Not Otherwise Specified)']}, value = 1);
-data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Autism Spectrum Disorder', 'Autism (Asperger\'s)']}, value = 2);
-data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': 'Eating Disorder (Anorexia, Bulimia, etc)'}, value = 3);
-data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Eating Disorder (Anorexia, Bulimia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Substance Use Disorder',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Addictive Disorder',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)', 'Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder', 
@@ -184,19 +178,22 @@ data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diag
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Substance Use Disorder',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Post-traumatic Stress Disorder|Substance Use Disorder',
-                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Substance Use Disorder'
-                                    ]}, value = 4)
-data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Obsessive-Compulsive Disorder',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Substance Use Disorder', 'Eating Disorder (Anorexia, Bulimia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)']}, value = 0);
+data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Attention Deficit Hyperactivity Disorder', 'Attention Deficit Hyperactivity Disorder|Addictive Disorder',
+                                    'Attention Deficit Hyperactivity Disorder|Obsessive-Compulsive Disorder|Stress Response Syndromes', 'Attention Deficit Hyperactivity Disorder|PTSD (undiagnosed)',
+                                    'Attention Deficit Hyperactivity Disorder|Pervasive Developmental Disorder (Not Otherwise Specified)',
+                                    'Autism Spectrum Disorder', 'Autism (Asperger\'s)',
+                                    'Eating Disorder (Anorexia, Bulimia, etc)',
+                                    'Obsessive-Compulsive Disorder',
                                     'Obsessive-Compulsive Disorder|Eating Disorder (Anorexia, Bulimia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
-                                    'Obsessive-Compulsive Disorder|Substance Use Disorder']}, value = 5)
-data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': 'Personality Disorder (Borderline, Antisocial, Paranoid, etc)'}, value = 6)
-data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Post-traumatic Stress Disorder',
+                                    'Obsessive-Compulsive Disorder|Substance Use Disorder',
+                                    'Personality Disorder (Borderline, Antisocial, Paranoid, etc)',
+                                    'Post-traumatic Stress Disorder',
                                     'Post-traumatic Stress Disorder|Dissociative Disorder',
                                     'Post-traumatic Stress Disorder|Stress Response Syndromes',
-                                    ]}, value = 7)
-data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Psychotic Disorder (Schizophrenia, Schizoaffective, etc)',
-                                    'Psychotic Disorder (Schizophrenia, Schizoaffective, etc)|Obsessive-Compulsive Disorder|ADD (w/o Hyperactivity)']}, value = 8)
-data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diagnosed with?': ['Schizotypal Personality Disorder',
+                                    'Psychotic Disorder (Schizophrenia, Schizoaffective, etc)',
+                                    'Psychotic Disorder (Schizophrenia, Schizoaffective, etc)|Obsessive-Compulsive Disorder|ADD (w/o Hyperactivity)',
+                                    'Schizotypal Personality Disorder',
                                     'Seasonal Affective Disorder',
                                     'Sexual addiction',
                                     'Stress Response Syndromes',
@@ -204,7 +201,8 @@ data3 = data3.replace(to_replace = {'If yes what condition(s) have you been diag
                                     'Stress Response Syndromes|Sleeping Disorder',
                                     'Substance Use Disorder|Addictive Disorder',
                                     'Transgender|Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
-                                    'Traumatic Brain Injury']}, value = 9) #otros
+                                    'Traumatic Brain Injury'
+                                    ]}, value = 1);
 data3['If yes what condition(s) have you been diagnosed with?'].fillna(99, inplace = True)
 ################################################################################################################################
 
@@ -245,15 +243,8 @@ data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe y
                                     'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)',
                                     'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Post-traumatic Stress Disorder',
                                     'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Stress Response Syndromes',
-                                    
-                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Tinnitus']}, value = 0)
-data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Attention Deficit Hyperactivity Disorder',
-                                    'Attention Deficit Hyperactivity Disorder|Mood Disorder (Depression, Bipolar Disorder, etc)',
-                                    'Attention Deficit Hyperactivity Disorder|Obsessive-Compulsive Disorder']}, value = 1)  
-data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Asperger Syndrome',
-                                    'Autism']}, value = 2)  
-data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': 'Eating Disorder (Anorexia, Bulimia, etc)'}, value = 3)                          
-data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Mood Disorder (Depression, Bipolar Disorder, etc)',
+                                    'Anxiety Disorder (Generalized, Social, Phobia, etc)|Tinnitus',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Addictive Disorder',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder',
@@ -266,22 +257,25 @@ data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe y
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Obsessive-Compulsive Disorder|Substance Use Disorder',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Post-traumatic Stress Disorder|Addictive Disorder',
                                     'Mood Disorder (Depression, Bipolar Disorder, etc)|Psychotic Disorder (Schizophrenia, Schizoaffective, etc)|Attention Deficit Hyperactivity Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Post-traumatic Stress Disorder|Dissociative Disorder|Depersonalisation',
-                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Stress Response Syndromes',
-                                    ]}, value = 4);
-data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Obsessive-Compulsive Disorder',
+                                    'Mood Disorder (Depression, Bipolar Disorder, etc)|Stress Response Syndromes']}, value = 0)
+data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Attention Deficit Hyperactivity Disorder',
+                                    'Attention Deficit Hyperactivity Disorder|Mood Disorder (Depression, Bipolar Disorder, etc)',
+                                    'Attention Deficit Hyperactivity Disorder|Obsessive-Compulsive Disorder',
+                                    'Asperger Syndrome',
+                                    'Autism',
+                                    'Eating Disorder (Anorexia, Bulimia, etc)',
+                                    'Obsessive-Compulsive Disorder',
                                     'Obsessive-Compulsive Disorder|Eating Disorder (Anorexia, Bulimia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
                                     'Obsessive-Compulsive Disorder|Substance Use Disorder',
                                     'Obsessive-Compulsive Disorder|Mood Disorder (Depression, Bipolar Disorder, etc)',
                                     'Obsessive-Compulsive Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
-                                    'Obsessive-Compulsive Disorder|Suicidal Ideation']}, value = 5)
-data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Personality Disorder (Borderline, Antisocial, Paranoid, etc)',
+                                    'Obsessive-Compulsive Disorder|Suicidal Ideation',
+                                    'Personality Disorder (Borderline, Antisocial, Paranoid, etc)',
                                     'Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Addictive Disorder'
                                     'Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)',
                                     'Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Anxiety Disorder (Generalized, Social, Phobia, etc)',
-                                    'Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Substance Use Disorder|Addictive Disorder']}, value = 6)
-data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': 'Post-traumatic Stress Disorder'}, value = 7)
-data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': 'Psychotic Disorder (Schizophrenia, Schizoaffective, etc)|Stress Response Syndromes'}, value = 8)
-data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Addictive Disorder',
+                                    'Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Substance Use Disorder|Addictive Disorder',
+                                    'Addictive Disorder',
                                     'Addictive Disorder|Substance Use Disorder|Obsessive-Compulsive Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)',
                                     'Gender Identity Disorder', 
                                     'Personality Disorder (Borderline, Antisocial, Paranoid, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)',
@@ -291,7 +285,10 @@ data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe y
                                     'Substance Use Disorder|Addictive Disorder',
                                     'Substance Use Disorder|Obsessive-Compulsive Disorder',
                                     'depersonalization disorder',
-                                    'post-partum / anxiety']}, value = 9)
+                                    'post-partum / anxiety',
+                                    'Post-traumatic Stress Disorder',
+                                    'Psychotic Disorder (Schizophrenia, Schizoaffective, etc)|Stress Response Syndromes'
+                                    ]}, value = 1)
 data3['If maybe what condition(s) do you believe you have?'].fillna(99, inplace = True)
 ################################################################################################################################
 
@@ -335,7 +332,7 @@ data3 = data3.replace(to_replace = {'Do you work remotely?': 'Always'}, value = 
 data3.rename(columns={"If yes what condition(s) have you been diagnosed with?": "label"}, inplace = True)
 
 data3.loc[data3.label == 99, 'label'] = data3.loc[data3.label == 99, "If maybe what condition(s) do you believe you have?"]
-data3.loc[data3.label == 99, 'label'] = 10
+data3.loc[data3.label == 99, 'label'] = 2
 data3 = data3.drop("If maybe what condition(s) do you believe you have?", axis=1)
 
 

@@ -5,8 +5,8 @@
 import pandas as panda
 #import os
 
-data = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\mental_health2.csv", encoding='iso-8859-1')
-#data = panda.read_csv(r"C:\Users\lcalzado\Desktop\survey_2016.csv", encoding='iso-8859-1')
+#data = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\mental_health2.csv", encoding='iso-8859-1')
+data = panda.read_csv(r"C:\Users\lcalzado\Desktop\survey_2016.csv", encoding='iso-8859-1')
 
 print(data)
 
@@ -52,7 +52,7 @@ data2 = data2.drop(["Are you self-employed?",
 print(data2)
 
 
-data2.to_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado_2ej.csv", index=False)
-#data2.to_csv(r"C:\Users\lcalzado\Desktop\resultado.csv", index=False)
+#data2.to_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado_2ej.csv", index=False)
+data2.to_csv(r"C:\Users\lcalzado\Desktop\resultado_2ej.csv", index=False)
 
 
