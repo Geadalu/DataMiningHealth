@@ -99,9 +99,9 @@ data3 = data3.replace(to_replace = {'Have your observations of how another indiv
 data3 = data3.replace(to_replace = {'Have your observations of how another individual who discussed a mental health disorder made you less likely to reveal a mental health issue yourself in your current workplace?': 'Yes'}, value = 2);
 data3['Have your observations of how another individual who discussed a mental health disorder made you less likely to reveal a mental health issue yourself in your current workplace?'].fillna(3, inplace = True) #tratado como "no aplica"
 
-data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'No'}, value = 0);
-data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'Maybe'}, value = 1);
-data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'Yes'}, value = 1);
+#data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'No'}, value = 0);
+#data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'Maybe'}, value = 1);
+#data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'Yes'}, value = 1);
 #data3 = data3.replace(to_replace = {'label': 'Yes'}, value = 2);
 
 ################################################################################################################################
@@ -245,7 +245,6 @@ data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe y
                                     'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Personality Disorder (Borderline, Antisocial, Paranoid, etc)',
                                     'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Post-traumatic Stress Disorder',
                                     'Anxiety Disorder (Generalized, Social, Phobia, etc)|Mood Disorder (Depression, Bipolar Disorder, etc)|Attention Deficit Hyperactivity Disorder|Stress Response Syndromes',
-                                    
                                     'Anxiety Disorder (Generalized, Social, Phobia, etc)|Tinnitus']}, value = 0)
 data3 = data3.replace(to_replace = {'If maybe what condition(s) do you believe you have?': ['Attention Deficit Hyperactivity Disorder',
                                     'Attention Deficit Hyperactivity Disorder|Mood Disorder (Depression, Bipolar Disorder, etc)',
@@ -323,7 +322,7 @@ data3 = data3.replace(to_replace = {'What is your age?': [71, 72, 73, 74, 75]}, 
 data3 = data3.replace(to_replace = {'What is your gender?': ['Male', 'male', 'M', 'm', 'man', 'Man', 'cis man', 'cis male', 'Cis male', 'dude', 'Dude', 'Male ', 'Male (cis)', 'male ', 'Cis Male']}, value = 0)
 data3 = data3.replace(to_replace = {'What is your gender?': ['Female', 'female', 'F', 'f', 'woman', 'Woman', 'female/woman', 'cis female', 'cis woman', 'Female ', 'female ', 'fem', ' Female',]}, value = 1)
 data3['What is your gender?'].fillna(2, inplace = True)
-data3['What is your gender?'].replace(to_replace = (data3['What is your gender?'].unique()[2:].tolist()), value = 0, inplace = True)
+data3['What is your gender?'].replace(to_replace = (data3['What is your gender?'].unique()[2:].tolist()), value = 2, inplace = True)
 
 data3 = data3.replace(to_replace = {'Do you work remotely?': 'Never'}, value = 0)
 data3 = data3.replace(to_replace = {'Do you work remotely?': 'Sometimes'}, value = 1)

@@ -99,9 +99,9 @@ data3 = data3.replace(to_replace = {'Have your observations of how another indiv
 data3 = data3.replace(to_replace = {'Have your observations of how another individual who discussed a mental health disorder made you less likely to reveal a mental health issue yourself in your current workplace?': 'Yes'}, value = 2);
 data3['Have your observations of how another individual who discussed a mental health disorder made you less likely to reveal a mental health issue yourself in your current workplace?'].fillna(3, inplace = True) #tratado como "no aplica"
 
-data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'No'}, value = 0);
-data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'Maybe'}, value = 1);
-data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'Yes'}, value = 1);
+#data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'No'}, value = 0);
+#data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'Maybe'}, value = 1);
+#data3 = data3.replace(to_replace = {'Do you currently have a mental health disorder?': 'Yes'}, value = 1);
 #data3 = data3.replace(to_replace = {'label': 'Yes'}, value = 2);
 
 ################################################################################################################################
