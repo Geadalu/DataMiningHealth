@@ -5,7 +5,8 @@
 import pandas as panda
 import numpy as np
 
-data3 = panda.read_csv(r"C:\Users\lcalzado\Desktop\resultado_2ej.csv", encoding='iso-8859-1')
+#data3 = panda.read_csv(r"C:\Users\lcalzado\Desktop\resultado_2ej.csv", encoding='iso-8859-1')
+data3 = panda.read_csv(r"C:\Users\Lucía Calzado\Desktop\resultado_2ej.csv", encoding='iso-8859-1')
 #data3 = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado_2ej.csv", encoding='iso-8859-1')
 
 data3 = data3.replace(to_replace = {'How many employees does your company or organization have?': '1-5'}, value = 5)
@@ -337,4 +338,5 @@ data3 = data3.drop("If maybe what condition(s) do you believe you have?", axis=1
 
 
 #data3.to_csv(r'C:\Users\lucia\OneDrive\Escritorio\resultado_2ej.csv', index=False);
-data3.to_csv(r'C:\Users\lcalzado\Desktop\resultado_2ej.csv', index=False);
+#data3.to_csv(r'C:\Users\lcalzado\Desktop\resultado_2ej.csv', index=False);
+data3.to_csv(r'C:\Users\Lucía Calzado\Desktop\resultado_2ej.csv', index=False);

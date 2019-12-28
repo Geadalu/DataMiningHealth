@@ -12,7 +12,8 @@ from sklearn.metrics import confusion_matrix
 from sklearn import preprocessing
 
 
-mental_health = panda.read_csv(r'C:\Users\lcalzado\Desktop\datasetUsable_2ej.csv')
+#mental_health = panda.read_csv(r'C:\Users\lcalzado\Desktop\datasetUsable_2ej3Clases.csv')
+mental_health = panda.read_csv(r'C:\Users\Lucía Calzado\Desktop\datasetUsable_2ej3Clases.csv')
 #mental_health = panda.read_csv(r'C:\Users\lucia\OneDrive\Escritorio\datasetUsable.csv')
 mental_health.head()
 
@@ -48,7 +49,7 @@ plt.show()
 
 
 #1. Build the model
-n_neighbors = 26 # BEST PARAMETER
+n_neighbors = 25 # BEST PARAMETER
 knn = neighbors.KNeighborsClassifier(n_neighbors, weights="distance")
 
 #divide database features into training and test
@@ -61,4 +62,4 @@ knn.fit(X_train, y_train)
 y_pred = knn.predict(X_test)
 
 #confusion matrix
-confusion_matrix(y_test, y_pred, labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+confusion_matrix(y_test, y_pred, labels = [0, 1, 2])

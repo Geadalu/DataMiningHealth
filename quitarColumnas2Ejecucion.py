@@ -6,7 +6,8 @@ import pandas as panda
 #import os
 
 #data = panda.read_csv(r"C:\Users\lucia\OneDrive\Escritorio\mental_health2.csv", encoding='iso-8859-1')
-data = panda.read_csv(r"C:\Users\lcalzado\Desktop\survey_2016.csv", encoding='iso-8859-1')
+#data = panda.read_csv(r"C:\Users\lcalzado\Desktop\survey_2016.csv", encoding='iso-8859-1')
+data = panda.read_csv(r"C:\Users\Lucía Calzado\Desktop\survey_2016.csv", encoding='iso-8859-1')
 
 print(data)
 
@@ -54,6 +55,8 @@ print(data2)
 
 
 #data2.to_csv(r"C:\Users\lucia\OneDrive\Escritorio\resultado_2ej.csv", index=False)
-data2.to_csv(r"C:\Users\lcalzado\Desktop\resultado_2ej.csv", index=False)
+#data2.to_csv(r"C:\Users\lcalzado\Desktop\resultado_2ej.csv", index=False)
+data2.to_csv(r"C:\Users\Lucía Calzado\Desktop\resultado_2ej.csv", index=False)
+
 
 
